@@ -1,3 +1,4 @@
+import Result from 'postcss/lib/result';
 import conf from '../conf/conf.js';
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -14,7 +15,7 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+    async createPost({title, slug, content, featuredImage, status, userId,synopsis}){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -26,6 +27,7 @@ export class Service{
                     featuredImage,
                     status,
                     userId,
+                    synopsis,
                 }
             )
         } catch (error) {
@@ -33,7 +35,7 @@ export class Service{
         }
     }
 
-    async updatePost(slug, {title, content, featuredImage, status}){
+    async updatePost(slug, {title, content, featuredImage, status,synopsis}){
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
@@ -44,7 +46,7 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-
+                    synopsis
                 }
             )
         } catch (error) {
@@ -81,12 +83,12 @@ export class Service{
         }
     }
 
-    async getPosts(queries = [Query.equal("status", "active")]){
+    async getPosts(){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                queries,
+            
                 
 
             )
@@ -129,6 +131,16 @@ export class Service{
             conf.appwriteBucketId,
             fileId
         )
+    }
+
+    //get file url 
+    getFileDownload(fileId){
+        const res =  this.bucket.getFileDownload(
+            conf.appwriteBucketId,
+            fileId
+        )
+        console.log(res);
+        return res;
     }
 }
 

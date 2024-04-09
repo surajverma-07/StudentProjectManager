@@ -23,12 +23,17 @@ export default function PostForm({post}){
         // if post available means - Updation
         if(post){
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) :null;
+            const file1 = data.synopsis[0] ? await appwriteService.uploadFile(data.synopsis[0]) :null;
             if(file){
                 appwriteService.deleteFile(post.featuredImage)
+            }
+            if(file1){
+                appwriteService.deleteFile(post.synopsis)
             }
             const dbPost = await appwriteService.updatePost(post.$id,{
                 ...data,
                 featuredImage:file? file.$id:undefined ,
+                synopsis:file?file.$id:undefined,
             })
             if(dbPost){
               navigate(`/post/${dbPost.$id}`)      
@@ -37,6 +42,7 @@ export default function PostForm({post}){
         // add new post 
         else{
           const file = await appwriteService.uploadFile(data.image[0]);
+          const file1 = await appwriteService.uploadFile(data.synopsis[0]);
 
           if(file){
             const fileId = file.$id
@@ -44,6 +50,7 @@ export default function PostForm({post}){
             const dbPost =  await appwriteService.createPost({
                 ...data,
                 userId: userData.$id,
+                synopsis:"string",
             })
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
@@ -108,6 +115,14 @@ export default function PostForm({post}){
                 accept="image/png, image/jpg, image/jpeg, image/gif "
                 {...register("image", { required: !post })}
             />
+            <Input
+                label="Synopsis :"
+                type="file"
+                className="mb-4"
+                accept=".doc, .docx, .pdf "
+                {...register("synopsis", { required: false })}
+            />
+           
             {post && (
                 <div className="w-full mb-4">
                     <img
@@ -117,12 +132,12 @@ export default function PostForm({post}){
                     />
                 </div>
             )}
-             <Select
+             {/* <Select
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
                     {...register("status", { required: true })}
-                />
+                /> */}
                 <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                     {post ? "Update" : "Submit"}
                 </Button>
