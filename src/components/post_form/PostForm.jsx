@@ -1,6 +1,6 @@
 import React,{useCallback, useEffect} from "react";
 import {useForm } from "react-hook-form";
-import {Button ,Select , Input,RTE} from '..'
+import {Button , Input,RTE} from '..'
 import appwriteService from '../../Appwrite/config'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -24,16 +24,21 @@ export default function PostForm({post}){
         if(post){
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) :null;
             const file1 = data.synopsis[0] ? await appwriteService.uploadFile(data.synopsis[0]) :null;
+            const file2 = data.ppt[0]?await appwriteService.uploadFile(data.ppt[0]):null;
             if(file){
                 appwriteService.deleteFile(post.featuredImage)
             }
             if(file1){
                 appwriteService.deleteFile(post.synopsis)
             }
+            if(file2){
+                appwriteService.deleteFile(post.ppt);
+            }
             const dbPost = await appwriteService.updatePost(post.$id,{
                 ...data,
                 featuredImage:file? file.$id:undefined ,
-                synopsis:file?file.$id:undefined,
+                synopsis:file1?file1.$id:undefined,
+                ppt:file2?file2.$id:undefined,
             })
             if(dbPost){
               navigate(`/post/${dbPost.$id}`)      
@@ -43,14 +48,22 @@ export default function PostForm({post}){
         else{
           const file = await appwriteService.uploadFile(data.image[0]);
           const file1 = await appwriteService.uploadFile(data.synopsis[0]);
+          const file2 = await appwriteService.uploadFile(data.ppt[0]);
 
           if(file){
             const fileId = file.$id
             data.featuredImage = fileId
+
+            const fileId1 = file1.$id;
+            data.synopsis = fileId1;
+
+            const fileId2 = file2.$id;
+            data.ppt = fileId2;
             const dbPost =  await appwriteService.createPost({
                 ...data,
                 userId: userData.$id,
-                synopsis:"string",
+                // synopsis:"string",
+                // ppt:"",
             })
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
@@ -121,6 +134,13 @@ export default function PostForm({post}){
                 className="mb-4"
                 accept=".doc, .docx, .pdf "
                 {...register("synopsis", { required: false })}
+            />
+            <Input
+                label="PPT:"
+                type="file"
+                className="mb-4"
+                accept=" .pptx , .pdf "
+                {...register("ppt", { required: false })}
             />
            
             {post && (
