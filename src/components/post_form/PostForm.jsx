@@ -26,10 +26,10 @@ export default function PostForm({post}){
             const file1 = data.synopsis[0] ? await appwriteService.uploadFile(data.synopsis[0]) :null;
             const file2 = data.ppt[0]?await appwriteService.uploadFile(data.ppt[0]):null;
             if(file){
-                appwriteService.deleteFile(post.featuredImage)
+                appwriteService.deleteFile(post.featuredImage);
             }
             if(file1){
-                appwriteService.deleteFile(post.synopsis)
+                appwriteService.deleteFile(post.synopsis);
             }
             if(file2){
                 appwriteService.deleteFile(post.ppt);
@@ -64,13 +64,13 @@ export default function PostForm({post}){
                 userId: userData.$id,
                 // synopsis:"string",
                 // ppt:"",
-            })
+            });
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
             }
           }
         }
-    }
+    };
 
     const slugTransform = useCallback((value) =>{
         if(value && typeof value === 'string'){
