@@ -36,20 +36,13 @@ export default function Post() {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+        <div className="w-full flex  justify-center mb-4 relative border rounded-xl p-2">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
             className="rounded-xl"
           />
-          {post.synopsis && 
-          
-            <Button onClick={()=>(window.open(appwriteService.getFileDownload(post.synopsis),"_blank"))} className="h-20 mt-44">Download Synopsis</Button>
-          }
-          {post.ppt &&  
-          
-            <Button onClick={()=>(window.open(appwriteService.getFileDownload(post.ppt),"_blank"))} className="h-30">Download ppt </Button>
-           }
+         
 
           {isAuthor && (
             <div className="absolute right-6 top-6">
@@ -64,7 +57,17 @@ export default function Post() {
             </div>
           )}
         </div>
-        <div className="w-full mb-6">
+        <div className="my-0 flex gap-x-8 justify-center">
+        {post.synopsis && 
+          
+          <Button onClick={()=>(window.open(appwriteService.getFileDownload(post.synopsis),"_blank"))} className="h-12 w-48 p-2">Download Synopsis</Button>
+        }
+        {post.ppt &&  
+        
+          <Button onClick={()=>(window.open(appwriteService.getFileDownload(post.ppt),"_blank"))} className="h-12  w-48 p-2">Download ppt </Button>
+         }
+        </div>
+        <div className="w-full lg:my-8 my-6">
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </div>
         <div className="browser-css">{parse(post.content)}</div>

@@ -28,7 +28,7 @@ function AllPosts() {
     </div>
   )
 }else{
-    return <div className='py-10'>No Post Availavle</div>
+    return (<div className='py-10 text-black w-full h-full'>No Post Availavle</div>)
 }
 }
 
