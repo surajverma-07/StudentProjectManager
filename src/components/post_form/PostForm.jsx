@@ -114,7 +114,7 @@ export default function PostForm({ post }) {
 
   return (
     <div>
-      {loading && <img src={loadingimg} alt="Loading..." className="place-content-center"/>}
+      {loading && <img src={loadingimg} alt="Loading..." className="place-content-center mx-auto h-full w-full"/>}
       {!loading && (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
           <div className="w-2/3 px-2">

@@ -17,7 +17,7 @@ function Home() {
 if(isUserAuthenticated){
     
     return(
-        <div className="w-full py-8">
+        <div className="w-full py-32 md:text-4xl lg:text-6xl">
             Welcome To Student Project Manager 
         </div>
     )
