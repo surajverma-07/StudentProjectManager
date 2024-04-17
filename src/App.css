@@ -52,7 +52,6 @@ body {
 
 .maintext {
     margin: auto;
-    font-size: 3.5rem;
     font-weight: 300;
     animation: lights 5s 750ms linear infinite;
 }
