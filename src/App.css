@@ -1,0 +1,58 @@
+/* Header text style */
+@keyframes lights {
+    0% {
+        color: hsl(210, 40%, 80%); /* Changed pink to blue */
+        text-shadow:
+            0 0 1em hsla(200, 100%, 50%, 0.2), /* Adjusted text shadow color */
+            0 0 0.125em hsla(200, 100%, 60%, 0.3), /* Adjusted text shadow color */
+            -1em -0.125em 0.5em hsla(240, 100%, 60%, 0), /* Adjusted text shadow color */
+            1em 0.125em 0.5em hsla(160, 100%, 60%, 0); /* Adjusted text shadow color */
+    }
+    
+    30% { 
+        color: hsl(210, 80%, 90%); /* Changed pink to blue */
+        text-shadow:
+            0 0 1em hsla(200, 100%, 50%, 0.5), /* Adjusted text shadow color */
+            0 0 0.125em hsla(200, 100%, 60%, 0.5), /* Adjusted text shadow color */
+            -0.5em -0.125em 0.25em hsla(240, 100%, 60%, 0.2), /* Adjusted text shadow color */
+            0.5em 0.125em 0.25em hsla(160, 100%, 60%, 0.4); /* Adjusted text shadow color */
+    }
+    
+    40% { 
+        color: hsl(210, 100%, 95%); /* Changed pink to blue */
+        text-shadow:
+            0 0 1em hsla(200, 100%, 50%, 0.5), /* Adjusted text shadow color */
+            0 0 0.125em hsla(200, 100%, 90%, 0.5), /* Adjusted text shadow color */
+            -0.25em -0.125em 0.125em hsla(240, 100%, 60%, 0.2), /* Adjusted text shadow color */
+            0.25em 0.125em 0.125em hsla(160, 100%, 60%, 0.4); /* Adjusted text shadow color */
+    }
+    
+    70% {
+        color: hsl(210, 80%, 90%); /* Changed pink to blue */
+        text-shadow:
+            0 0 1em hsla(200, 100%, 50%, 0.5), /* Adjusted text shadow color */
+            0 0 0.125em hsla(200, 100%, 60%, 0.5), /* Adjusted text shadow color */
+            0.5em -0.125em 0.25em hsla(240, 100%, 60%, 0.2), /* Adjusted text shadow color */
+            -0.5em 0.125em 0.25em hsla(160, 100%, 60%, 0.4); /* Adjusted text shadow color */
+    }
+    
+    100% {
+        color: hsl(210, 40%, 80%); /* Changed pink to blue */
+        text-shadow:
+            0 0 1em hsla(200, 100%, 50%, 0.2), /* Adjusted text shadow color */
+            0 0 0.125em hsla(200, 100%, 60%, 0.3), /* Adjusted text shadow color */
+            1em -0.125em 0.5em hsla(240, 100%, 60%, 0), /* Adjusted text shadow color */
+            -1em 0.125em 0.5em hsla(160, 100%, 60%, 0); /* Adjusted text shadow color */
+    }
+}
+
+body {
+    background-color: hsl(210, 10%, 90%); /* Changed pink to blue */
+}
+
+.maintext {
+    margin: auto;
+    font-size: 3.5rem;
+    font-weight: 300;
+    animation: lights 5s 750ms linear infinite;
+}

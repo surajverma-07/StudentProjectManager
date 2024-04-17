@@ -26,15 +26,14 @@ function App() {
   },[])
   
  return !loading ? (
- <div className='min-h-screen bg-gray-400   flex flex-wrap  content-between  '> 
-     <div className="block w-full text-center font-bold">
+ <>
        <Header />
           <main>
              <Outlet />
           </main>
        <Footer />
-     </div>
- </div>
+ </>
+
  ) : null
 }
 
