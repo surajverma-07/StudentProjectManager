@@ -14,7 +14,7 @@ function AllPosts() {
  if (posts != null){
 
   return (
-    <div className='w-full py-8'>
+    <div className='w-full py-8 bgmain1  h-full min-h-screen '>
         <Container>
             <div className='flex flex-wrap justify-evenly'>
                 {posts.map((post)=>(
