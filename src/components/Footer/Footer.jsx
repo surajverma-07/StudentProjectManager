@@ -4,11 +4,11 @@ import Logo from "../Logo";
 
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-4 bg-[#141E46]  text-slate-200  border-t-2 border-t-black">
+    <section className="relative overflow-hidden py-4 bg-[#141E46]  text-slate-200  border-t-2 border-t-black w-screen">
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="-m-6 flex flex-wrap">
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
+            <div className="flex h-full flex-col mx-auto md:-ml-10 lg:-ml-24  justify-between items-center">
               <div className="mb-4 inline-flex items-center">
                 <Logo width="180px" />
               </div>
@@ -20,7 +20,7 @@ function Footer() {
             </div>
           </div>
          
-          <div className='  w-96 mt-10 ml-60'>
+          <div className='  w-96 md:ml-30 mx-auto md:mt-10 :ml-60'>
                             <h2 className="mb-6 text-md  text-center  font-semibold text-[#FC6736]  uppercase">Follow us</h2>
                             <div className='flex justify-evenly'>
                                <div>
@@ -72,7 +72,7 @@ function Footer() {
                             </ul>
                                </div>
                             </div>
-                        </div>
+          </div>
        
         </div>
       </div>
