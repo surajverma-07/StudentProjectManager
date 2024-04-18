@@ -18,8 +18,8 @@ function Home() {
    if(isUserAuthenticated){
 
      return (
-       <div className={`w-full py-3 text-center md:text-2xl text-slate-300  lg:text-5xl h-full min-h-screen  bgmain`}>
-         <h2 className="maintext  font-bold">Student Project Manager</h2>
+       <div className={`w-full py-3 text-center  md:text-5xl text-slate-300  lg:text-5xl h-full min-h-screen  bgmain`}>
+         <h2 className="maintext md:mt-0 sm:mt-2 mt-4 font-bold">Student Project Manager</h2>
       </div>
     );
     
