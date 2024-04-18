@@ -55,3 +55,8 @@ body {
     font-weight: 300;
     animation: lights 5s 750ms linear infinite;
 }
+
+/* //home background  */
+.bgmain{
+  background-image: url('/src/assets/mainbg1.jpg');
+}

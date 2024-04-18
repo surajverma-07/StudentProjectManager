@@ -16,8 +16,8 @@ function Home() {
   }, []);
 
     return (
-      <div className="w-full py-3 text-center md:text-2xl text-slate-300  lg:text-5xl h-full min-h-screen bg-[url('../../src/assets/mainbg1.jpg')] bg-no-repeat bg-center bg-cover   ">
-         <h2 className="maintext font-bold">Student Project Manager</h2>
+      <div className={`w-full py-3 text-center md:text-2xl text-slate-300  lg:text-5xl h-full min-h-screen  bg-no-repeat bg-center bg-cover bgmain`}>
+         <h2 className="maintext  font-bold">Student Project Manager</h2>
       </div>
     );
  
