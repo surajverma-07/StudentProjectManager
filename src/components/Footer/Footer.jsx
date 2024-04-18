@@ -20,7 +20,7 @@ function Footer() {
             </div>
           </div>
          
-          <div className='  w-96 md:ml-30 mx-auto md:mt-10 :ml-60'>
+          <div className='  w-96 md:ml-30 mx-auto md:mt-10 :ml-60 mb mb-10 sm:mb-0'>
                             <h2 className="mb-6 text-md  text-center  font-semibold text-[#FC6736]  uppercase">Follow us</h2>
                             <div className='flex justify-evenly'>
                                <div>
