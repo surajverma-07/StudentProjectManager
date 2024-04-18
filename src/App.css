@@ -1,4 +1,60 @@
+/* Importing google Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+}
+
+.maintext {
+    margin: auto;
+    font-weight: 300;
+    animation: lights 5s 750ms linear infinite;
+    font-family: "Poppins", sans-serif;
+
+}
+.fontpop{
+    font-family: "Poppins", sans-serif;
+
+}
+
+/* //home background  */
+.bgmain{
+  background-image: url('/src/assets/mainbg1.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.bgmain1{
+  background-image: url('/src/assets/bgopacity.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* //glow effect in text to inhance UI  */
+.glow {
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 3px #DCF2F1;
+    }
+    
+    to {
+      text-shadow: 0 0 5px #0F1035;
+    }
+  }
+
 /* Header text style */
+
 @keyframes lights {
     0% {
         color: hsl(210, 40%, 80%); /* Changed pink to blue */
@@ -46,26 +102,12 @@
     }
 }
 
-body {
-    background-color: hsl(210, 10%, 90%); /* Changed pink to blue */
-}
-
-.maintext {
-    margin: auto;
-    font-weight: 300;
-    animation: lights 5s 750ms linear infinite;
-}
-
-/* //home background  */
-.bgmain{
-  background-image: url('/src/assets/mainbg1.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.bgmain1{
-  background-image: url('/src/assets/bgopacity.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+.btn-1:hover {
+    font-weight: 900;
+    letter-spacing: 1px;
+    
+      stroke-width: 5;
+      stroke-dasharray: 15, 310;
+      stroke-dashoffset: 48;
+      transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
