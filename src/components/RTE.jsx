@@ -5,7 +5,7 @@ import {Controller } from 'react-hook-form';
 
 export default function RTE({name, control, label, defaultValue =""}) {
   return (
-    <div className='w-full'> 
+    <div className='w-full text-orange-500 font-semibold text-xl '> 
     {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
 
     <Controller
@@ -16,6 +16,9 @@ export default function RTE({name, control, label, defaultValue =""}) {
         apiKey='8jz76o3y35agiywc9a4ok1gdyjhdstvdvpegfhxzh8vc8iex'
         initialValue={defaultValue}   
         init={{
+          selector: 'textarea',  // change this value according to your HTML
+          skin: 'oxide-dark',
+          content_css: 'dark',
             initialValue: defaultValue,
             height: 500,
             menubar: true,

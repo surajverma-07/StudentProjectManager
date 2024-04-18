@@ -116,8 +116,8 @@ export default function PostForm({ post }) {
     <div>
       {loading && <img src={loadingimg} alt="Loading..." className="place-content-center mx-auto h-full w-full"/>}
       {!loading && (
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-          <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap  sm:flex-row flex-col">
+          <div className="w-full sm:w-2/3 px-2 mx-auto sm:mx-0 ">
             <Input
               label="Title :"
               placeholder="Title"
@@ -142,7 +142,7 @@ export default function PostForm({ post }) {
               defaultValue={getValues("content")}
             />
           </div>
-          <div className="w-1/3 px-2">
+          <div className="w-full sm:w-1/3 px-2 sm:mx-0 mx-auto ">
             <Input
               label="Featured Image :"
               type="file"
