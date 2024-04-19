@@ -14,6 +14,7 @@ export default function Post() {
   // const userState = useSelector((state) => state.auth.status);
 
   const isAuthor = post && userData ? post.userId === userData.$id : false;
+  const isAdmin = (userData.email === 'suraj1@gmail.com')?true:false;
 
   useEffect(() => {
     if (slug) {
@@ -44,7 +45,7 @@ export default function Post() {
           />
          
 
-          {isAuthor && (
+          {(isAdmin||isAuthor) && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>
                 <Button bgColor="bg-green-500" className="mr-3">
